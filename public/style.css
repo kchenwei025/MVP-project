@@ -1,0 +1,75 @@
+h2 {
+  border: 1px solid black;
+  padding: 10px;
+}
+.p {
+  border: 1px solid black;
+  padding: 10px;
+  padding: 1em;
+}
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.tweets div {
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  /* transition: background-color 0.2s ease; */
+}
+
+.tweets div:hover {
+  background-color: #eaeaea;
+}
+
+.tweets a {
+  font-weight: bold;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.tweets a:hover {
+  color: #333;
+}
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+    50% {
+    background-position: 100% 50%;
+  }
+    100% {
+    background-position: 0% 50%;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+}
