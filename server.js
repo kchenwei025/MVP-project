@@ -1,5 +1,10 @@
 import pg from "pg";
 import express from "express";
+import dotenv from "dotenv";
+
+console.log("before", process.env.DATABASE_URL);
+dotenv.config();
+console.log("after", process.env.DATABASE_URL);
 
 const app = express();
 const PORT = 4000;
