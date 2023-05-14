@@ -10,7 +10,7 @@ const app = express();
 const PORT = 4000;
 
 const db = new pg.Pool({
-  database: "gData",
+  connectionString: process.env.DATABASE_URL,
 });
 app.use(express.json());
 app.use(express.static("public"));
