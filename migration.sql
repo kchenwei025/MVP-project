@@ -109,12 +109,12 @@ INSERT INTO students (
     'Shu Luo',
     'I am originally from China. I am currently stationed at Fort Wainwright, AK, and plan to move to Atlanta, GA.',
     'China',
-    'I like data analysis, and there are a lot of algorithms for advanced data processing in the computer science field. I’d like to learn not only how to apply them, but also how to build them from scratch. I often used R (an open-source statistical software) for data analysis. There are a lot of modules built by individual software engineers, for a better way of calculation. I really want to learn and write my own module for the community one day.',
+    'I like data analysis, and there are a lot of algorithms for advanced data processing in the computer science field. I''d like to learn not only how to apply them, but also how to build them from scratch. I often used R (an open-source statistical software) for data analysis. There are a lot of modules built by individual software engineers, for a better way of calculation. I really want to learn and write my own module for the community one day.',
     'Pattern recognition, app/web development',
     'Hiking, watching sports games, spending time with family',
     'The Shawshank Redemption, Scent of a Woman, The Dark Knight Trilogy, Let the Bullets Fly, The Grandmaster',
     'Thinking, Fast and Slow; Guns, Germs, and Steel',
-    '“She was still too young to know that life never gives anything for nothing, and that a price is always expected for what fate bestows.\" - Stefan Zweig, Marie Antoinette: The Portrait of an Average Woman',
+    'She was still too young to know that life never gives anything for nothing, and that a price is always expected for what fate bestows.\" - Stefan Zweig, Marie Antoinette: The Portrait of an Average Woman',
     'I was raised in a city with more than 10 million population; I speak Mandarin; I have been to 15 different National Parks.'
 );
 INSERT INTO students (
@@ -247,8 +247,8 @@ INSERT INTO students (
     favoriteQuote,
     InterestingFacts
 ) VALUES (
-    'Garcia',
-    'I''m an Air Force brat so we travelled a lot as a kid, but I call Mt. Laurel, New Jersey, USA my hometown.',
+    'David Garcia',
+    'Hi all! I''m David Garcia and I''ll be your Transition and Career Services Manager for this cohort! I''m an Air Force brat so we travelled a lot as a kid, but I call Mt. Laurel, New Jersey, USA my hometown.',
     'Mt. Laurel, New Jersey, USA',
     'I am a US Army veteran, former small business manager, I worked for colleges and universities for about 7 years, and I worked as a recruiter for a data consultancy for a short stint. Long story short, all of those experiences led me here, and I''ve really enjoyed the culture around ed tech - and more importantly - supporting fellow veterans. I''m continuing my education in Data Analytics, but I came here because I love helping learners through their journeys. I cannot wait to see the projects and products you create!',
     'Data Analytics, data engineering, app development, video games',
@@ -304,6 +304,199 @@ InterestingFacts
 '"Hard times create strong men, strong men create good times, good times create weak men, and weak men create hard times." - G. Michael Hopf',
 '1. I have a YouTube channel. 2. I just bought a house at 21. 3. I wish nothing but the best for everyone.'
 );
+INSERT INTO students (
+name,
+introduction,
+whereFrom,
+whySoftwareEngineering,
+techInterest,
+Hobbies,
+favoriteMovies,
+favoriteBook,
+favoriteQuote,
+InterestingFacts
+) VALUES (
+'Fitz Gerald S Sicat',
+'Hello everyone! Originally from the Philippines, moved to Guam, joined the Navy from California and got stationed in Virginia.',
+'Philippines',
+'I''m always interested how video games being created as I played too many. I''m an aircraft mechanic, but this career field is much more in demand and I''d like to take care of myself now as I''ve been wearing and tearing my body down being a mechanic. Lastly, I''d like to create an application someday that would reduce or eliminate mental health problems for everyone.',
+'Web application and cybersecurity',
+'Spending time with family and playing video games',
+'3 idiots and John Wicks',
+'none',
+'Follow your excellence, success will chase you. -3idiots',
+'I did back to back deployments, first one was a record-breaking 206 days at sea with no port calls. I''m slowly learning Spanish as it''ll be my fourth language. I have my FAA A&P License.'
+);
+INSERT INTO students (
+name,
+introduction,
+whereFrom,
+whySoftwareEngineering,
+techInterest,
+Hobbies,
+favoriteMovies,
+favoriteBook,
+favoriteQuote,
+InterestingFacts
+) VALUES (
+'David Christobal',
+'Good afternoon everyone! I am from El Paso, TX. Joined the Air Force in 2019 but have always been set on only doing 4 years. I was stationed in England for 2 years and finishing my contract in Florida.',
+'El Paso, TX',
+'I''ve always had an interest in software engineering but have never really pursued anything in the field until recently. I''m still very new to the whole coding scene but I''m excited to learn.',
+'Video games and AI art',
+'Weightlifting and sports',
+'The longest yard, 300, This Is The End, and 21 Jump Street',
+'The outsiders and The Great Gatsby',
+'Sometimes I''ll start a sentence and I don''t even know where it''s going. I just hope I find it along the way - The Office',
+'I''ve seen the northern lights\n\nI rode the fastest roller coaster in the world\n\nBeen to the blue lagoon spa.'
+);
+INSERT INTO students (
+name,
+introduction,
+whereFrom,
+whySoftwareEngineering,
+techInterest,
+Hobbies,
+favoriteMovies,
+favoriteBook,
+favoriteQuote,
+InterestingFacts
+) VALUES (
+'Adrian Pacheco',
+'Hello all. My name is Adrian Pacheco and I am excited to go on this journey with all of you.I am from Desert Hot Springs, California, and grew up there my whole life before I joined the Army.',
+'Desert Hot Springs, California',
+'I''d have to credit this to a friend, he is a very knowledgeable friend who first exposed me to software engineering and all the possibilities of this career field, and it very much piqued my interest.',
+'Web development and app development',
+'Soccer, PC gaming',
+'The movie adaptation of In the Heights',
+'The Percy Jackson Series',
+'Life is locomotion if you''re not moving you''re not living but there comes a time when you''ve got to start running towards something you''ve got to forge ahead. - Barry Allen',
+'First generation American born from a Mexican family\n\nOldest of 4 Kids total\n\nI have 4 cats named Brussel Sprout, Coco, Shmellow, and Tater Tot.'
+);
+INSERT INTO students (
+name,
+introduction,
+whereFrom,
+whySoftwareEngineering,
+techInterest,
+Hobbies,
+favoriteMovies,
+favoriteBook,
+favoriteQuote,
+InterestingFacts
+) VALUES (
+'Wei Chen',
+'Hi! Everybody! I am originally from China, I moved to the United States 10 years ago.',
+'China',
+'My job on the military side deals with computers a lot. I often encounter problems that seem like a bug or something that can be designed better. I figure learning about software engineering can help me understand the problem better and maybe even be able to solve the problem or improve the user experience.',
+'Learning the basic concepts of software engineering and narrowing down to areas of expertise',
+'Traveling, cooking',
+'John Wick, Legend of 1900, 300',
+'Mostly Chinese fiction novels',
+'"Knowledge is power" "Imagination is more important than knowledge"',
+'I biked 200 miles in a day one time\nI speak 3 languages including my dialect\nI have a Yorkshire terrier'
+);
+INSERT INTO students (
+name,
+introduction,
+whereFrom,
+whySoftwareEngineering,
+techInterest,
+Hobbies,
+favoriteMovies,
+favoriteBook,
+favoriteQuote,
+InterestingFacts
+) VALUES (
+'Jersen Reyes',
+'Good afternoon everyone! I''ll be joining the cohort to help guide you all through any questions you may have!',
+'Cali',
+'I''ve always played computer games and wondered how they were made. As I got older I made friends who were in the tech industry and they explained to me what the day to day job is for each role they worked in. As I was transitioning out of the military I was wondering if I wanted to go back to school or find work. It was at a skillbridge fair that I found galvanize and I signed up right away',
+'Building well maintainable code that will have a positive impact on the world',
+'Traveling, muay thai kickboxing, weightlifting, snowboarding, skating, hanging out with friends',
+'Too many to name',
+'Honestly, I don''t read books but I would like to start',
+'N/A',
+'I can understand Tagalog fluently but I can''t speak it\nI am trying to pursue a professional kickboxing career while still working in the tech industry\nI have a Shiba Inu'
+);
+
+INSERT INTO students (
+name,
+introduction,
+whereFrom,
+whySoftwareEngineering,
+techInterest,
+Hobbies,
+favoriteMovies,
+favoriteBook,
+favoriteQuote,
+InterestingFacts
+) VALUES (
+'Jose Larrahondo',
+'I am from New Jersey',
+'New Jersey',
+'When I would see companies'' websites I would always ask myself how they make this? How does Amazon keep track of all this information and know it''s me every time I log in? That''s what drove me to learn how to code and one day build my own globally used website.',
+'Build websites or applications that are sustainable and user-friendly but also offer complexity and creativeness in its design',
+'Sports, movies, trying different foods',
+'Gladiator, 300, ELF',
+'48 Laws of Power',
+'"Don''t be afraid to start over. This time you are not starting from scratch, you are starting from experience"',
+'I ate pizza every day in 9th grade\nI was born in the US but raised in Colombia until I was 8\nI once ate a 50 oz steak!'
+);
+INSERT INTO students (
+name,
+introduction,
+whereFrom,
+whySoftwareEngineering,
+techInterest,
+Hobbies,
+favoriteMovies,
+favoriteBook,
+favoriteQuote,
+InterestingFacts
+) VALUES (
+'Jeremy Effinger',
+'I''m originally from the Houston area in Texas, spent my entire military career over in San Diego and I''m now living in Tennessee.',
+'Houston, Texas',
+'I''ve always had a foot in the tech world. I got my first computer when I was twelve and have been messing around with it ever since then as a hobby, and then as a job. The move from systems administrator and pentester has been a big goal of mine.',
+'Secure web design, authentication systems',
+'Dungeons and Dragons, Reading, Gardening, cooking, walking my dogs',
+'Conan the Barbarian',
+'The Black Company by Glen Cook, The Hobbit by JRR Tolkien',
+'"There are only two hard things in Computer Science: cache invalidation and naming things." - Phil Karlton',
+'I''ve read over two thousand fictional novels in my lifetime, primarily sci-fi and fantasy. Tell me your favorite book and there is a good chance I''ve read it if it''s one of these two genres. I almost failed high school because of an addiction to playing the MMO Eve Online. I once ran sixteen miles for fun.'
+);
+
+INSERT INTO students (
+  name,
+  introduction,
+  whereFrom,
+  whySoftwareEngineering,
+  techInterest,
+  Hobbies,
+  favoriteMovies,
+  favoriteBook,
+  favoriteQuote,
+  InterestingFacts
+) VALUES (
+  'Dalton Andrews',
+  'I am from a small town in Tennessee called Gleason, TN. I lived there until I joined the Coast Guard at age 23.',
+  'Gleason, TN',
+  'I ultimately decided to go into Software Engineering after realizing this can be my ticket to a better life and one that doesn’t need a degree to start making a comparable income to what I was receiving in the military. After the passing of a close family member, I realized how much family meant to me and how I needed to get home to be able to not only provide a better life for my wife and daughter, but to also be able to assist with my parents and other family members. This program is my golden ticket to be able to get out of the military, and also succeed. Risks are good in certain things, but when I have myself and a family to be able to financially provide for, I had to have a plan that would give me the highest chance of employment and one that I did not have to rely on two-four years of school just living off the GI Bill BAH rate. Software Engineering skills open up so many doors for employment and also for interesting jobs.',
+  'Having the knowledge to design, create, and implement better applications and software where users are more effective at their jobs and does not have as big of a headache using it.',
+  'Watching a YouTube Fan Based Series called Vegito the God Killer, revamping homes/properties, enjoying a good cup of coffee and conversations with friends, enjoying a night out with my wife.',
+  'Father Stu, Central Intelligence, Dr. Strange, The Imitation Game, The Guardian, Office Space, The Gladiator, Titanic, Training Day, Rocky Series, Iron Man, Bad Boys, Forrest Gump, The Last Samurai, Eurovision Song Contest: The Story of Fire Saga',
+  'As A Man Thinketh - James Allen, Bulletproof Diet - Dave Aspery, Genius Foods - Max Lugavere',
+  'Fail your way to success - Supervisor from my first unit',
+  'I have a 7 month old daughter; I have driven across the country multiple times and of those times, once being in a 26 foot moving truck; After completing college, I have been a Police Officer and Coast Guardsman for 8 years. I am switching to a new career field in Software Engineering and excited for the change.'
+);
+
+
+
+
+
+
+
 
 
 

@@ -3,6 +3,7 @@
  * You can safely leave this file untouched, and confine your changes to index.html.
  */
 // set up data structures
+
 window.streams = {};
 streams.home = [];
 streams.users = {};
@@ -38,23 +39,47 @@ var addTweet = function (newTweet) {
   streams.users[username] ||= [];
   streams.users[username].push(newTweet);
   streams.home.push(newTweet);
+  console.log(username);
 
-  // Make an AJAX request to insert the tweet into the database
   $.ajax({
-    url: "/post",
-    method: "POST",
-    contentType: "application/json",
-    data: JSON.stringify({
-      post_time: new Date().toLocaleTimeString(),
-      post_content: newTweet.message,
-      students_id: 1, //, // You need to implement a function to get the user ID by username
-    }),
+    url: "/students",
+    method: "GET",
+    dataType: "json",
     success: function (response) {
-      console.log("Tweet inserted successfully into the database!");
-      console.log(response);
+      const studentsData = response.map((student) => ({
+        id: student.id,
+        name: student.name,
+      }));
+
+      // Find the corresponding user ID by matching the username
+      var user = studentsData.find(function (student) {
+        return student.name.includes(username);
+      });
+
+      // Check if the user exists and retrieve the user ID
+      var userId = user ? user.id : null;
+
+      // Make an AJAX request to insert the tweet into the database
+      $.ajax({
+        url: "/post",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+          post_time: new Date().toLocaleTimeString(),
+          post_content: newTweet.message,
+          students_id: userId,
+        }),
+        success: function (response) {
+          console.log("Tweet inserted successfully into the database!");
+          console.log(response);
+        },
+        error: function (error) {
+          console.error("Error inserting tweet into the database:", error);
+        },
+      });
     },
     error: function (error) {
-      console.error("Error inserting tweet into the database:", error);
+      console.error("Error retrieving student data:", error);
     },
   });
 };
@@ -185,7 +210,7 @@ for (var i = 0; i < 1; i++) {
   generateRandomTweet();
 }
 
-setInterval(generateRandomTweet, 5000);
+// setInterval(generateRandomTweet, 5000);
 // var scheduleNextTweet = function () {
 //   generateRandomTweet();
 //   setTimeout(scheduleNextTweet, Math.random() * 3500);
@@ -194,3 +219,12 @@ setInterval(generateRandomTweet, 5000);
 
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
+var writeTweet = function (message) {
+  if (!visitor) {
+    throw new Error("set the global visitor property!");
+  }
+  var tweet = {};
+  tweet.user = visitor;
+  tweet.message = message;
+  addTweet(tweet);
+};

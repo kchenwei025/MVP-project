@@ -2,8 +2,6 @@ const $tweets = $(".tweets");
 let $p = $(".p");
 let lastIndex = -1;
 let u1 = {};
-
-console.log("who first");
 function getNewTweets() {
   $tweets.html(" ");
   for (let i = lastIndex + 1; i < streams.home.length; i++) {
@@ -34,9 +32,9 @@ function getNewTweets() {
   lastIndex = streams.home.length - 1;
 }
 
+const $tweetList = $("#tweet-list");
 getNewTweets();
 // setInterval(getNewTweets, 1500);
-const $tweetList = $("#tweet-list");
 
 $tweetList.on("click", function (event) {
   getNewTweets(event);
@@ -104,8 +102,12 @@ $(".tweet-form").on("submit", function (event) {
     success: function (response) {
       console.log("Tweet inserted successfully!");
       console.log(response);
+      const data = new FormData(event.target);
+      const tweetText1 = data.get("tweet-text");
+      window.visitor = "a";
 
-      $('input[name="tweet-text"]').val(""); // Clear the input field
+      writeTweet(tweetText1);
+      // $('input[name="tweet-text"]').val(""); // Clear the input field
       getNewTweets(); // Function to fetch new tweets
     },
     error: function (error) {
@@ -113,21 +115,7 @@ $(".tweet-form").on("submit", function (event) {
     },
   });
 });
-// $(".tweet-form").on("submit", function (event) {
-//   event.preventDefault();
-//   const data = new FormData(event.target);
-//   const tweetText = data.get("tweet-text");
-//   window.visitor = "danny";
-//   writeTweet(tweetText);
-//   getNewTweets();
-//   console.log("where is danny");
-//   $('input[name="tweet-text"]').val("");
-// });
-// Assuming you have an array of student objects with their data
-// Get the required elements
-// Get the required elements
-// Get the required elements
-// Get the required elements
+
 const selectElement = document.getElementById("student-select");
 const buttonElement = document.getElementById("student-data");
 const studentDataElement = document.getElementById("student-data-container");
@@ -192,7 +180,13 @@ buttonElement.addEventListener("click", () => {
       console.error("Error retrieving student data:", error);
     });
 });
+let selectedStudent = ""; // Variable to store the selected student name
 
+// Event listener for the select element
+selectElement.addEventListener("change", function () {
+  selectedStudent = this.options[this.selectedIndex].text;
+  window.visitor = selectedStudent;
+});
 // Function to retrieve student data from the database
 function getStudentDataFromDatabase(id) {
   return new Promise((resolve, reject) => {
@@ -208,3 +202,20 @@ function getStudentDataFromDatabase(id) {
     });
   });
 }
+
+// $(".tweet-form").on("submit", function (event) {
+//   event.preventDefault();
+//   const data = new FormData(event.target);
+//   const tweetText = data.get("tweet-text");
+//   window.visitor = "danny";
+//   writeTweet(tweetText);
+//   getNewTweets();
+//   console.log("where is danny");
+//   $('input[name="tweet-text"]').val("");
+// });
+
+// Assuming you have an array of student objects with their data
+// Get the required elements
+// Get the required elements
+// Get the required elements
+// Get the required elements
