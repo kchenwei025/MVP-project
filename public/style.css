@@ -73,3 +73,89 @@ body {
   align-items: flex-start;
   height: 100vh;
 }
+
+/* body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.tweet-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tweet-form label {
+  margin-bottom: 10px;
+}
+
+.tweet-form input {
+  padding: 5px;
+  width: 100%;
+}
+
+.tweet-form button {
+  padding: 10px;
+  width: 100px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.tweet-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tweets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#student-select {
+  margin-bottom: 10px;
+}
+
+#student-data {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#student-data-container {
+  margin-top: 20px;
+}
+
+.p {
+  margin-top: 20px;
+} */

@@ -228,3 +228,4 @@ var writeTweet = function (message) {
   tweet.message = message;
   addTweet(tweet);
 };
+setInterval(generateRandomTweet, 5000);
