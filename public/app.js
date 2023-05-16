@@ -2,8 +2,10 @@ const $tweets = $(".tweets");
 let $p = $(".p");
 let lastIndex = -1;
 let u1 = {};
+
 function getNewTweets() {
   // $tweets.html(" ");
+
   $.ajax({
     url: "/post", // Replace with the actual endpoint to fetch tweet data from the database
     method: "GET",
@@ -20,10 +22,9 @@ function getNewTweets() {
           for (let i = lastIndex + 1; i < tweetsResponse.length; i++) {
             const $tweet = $("<div></div>");
             const tweet = tweetsResponse[i];
-            const timestamp = tweet.post_time;
+            const timestamp = new Date();
             const studentId = tweet.students_id;
             const content = tweet.post_content;
-
             const student = studentNames.find(function (s) {
               return s.id === studentId;
             });
@@ -31,19 +32,25 @@ function getNewTweets() {
             if (student) {
               const studentName = student.name;
               const $username = $(`<a></a>`);
+
               $username.on("click", function () {
-                let $test = $("<div></div>");
-                $test.append(`<h2>@${studentName}'s tweets:</h2>`);
-                const tweets = u1[studentName];
-                for (let i = 0; i < tweets.length; i++) {
-                  const tweet = tweets[i];
-                  const message = tweet.message;
-                  const timestamp = formatTimestamp(tweet.timestamp);
-                  $tweet.text(`(${timestamp}): ${message}`);
-                  $test.append($tweet);
-                }
-                $p.prepend($test);
+                // let $test = $("<div></div>");
+                // $test.append(`<h2>@${studentName}'s tweets:</h2>`);
+                // const tweets = u1[studentName];
+                // console.log(timestamp);
+                // for (let i = 0; i < tweets.length; i++) {
+                //   const tweet = tweets[i];
+                //   const message = tweet.message;
+                //   const timestamp = formatTimestamp(
+                //     Date.parse(tweet.timestamp)
+                //   );
+                //   console.log(timestamp);
+                //   $tweet.text(`(${timestamp}): ${message}`);
+                //   $test.append($tweet);
+                // }
+                // $p.prepend($test);
               });
+
               $username.attr("href", `#${studentName}`);
               $username.text(`@${studentName}`);
               $tweet.append($username);
@@ -66,15 +73,6 @@ function getNewTweets() {
 setInterval(() => {
   getNewTweets();
 }, 150);
-
-const $tweetList = $("#tweet-list");
-getNewTweets();
-// setInterval(getNewTweets, 1500);
-
-$tweetList.on("click", function (event) {
-  getNewTweets(event);
-});
-
 function formatTimestamp(timestamp) {
   const date = new Date(timestamp);
   const now = new Date();
@@ -138,37 +136,37 @@ function storeFile() {
 
 $(".tweet-form").on("submit", function (event) {
   event.preventDefault();
-  const tweetText = $('input[name="tweet-text"]').val();
-  const currentTime = new Date().toLocaleTimeString();
+  // const tweetText = $('input[name="tweet-text"]').val();
+  // const currentTime = new Date().toLocaleTimeString();
 
-  $.ajax({
-    url: "/post",
-    method: "POST",
-    contentType: "application/json",
-    data: JSON.stringify({
-      post_time: currentTime,
-      post_content: tweetText,
-      students_id: 2,
-    }),
+  // $.ajax({
+  //   url: "/post",
+  //   method: "get",
+  //   contentType: "application/json",
+  //   data: JSON.stringify({
+  //     post_time: currentTime,
+  //     post_content: tweetText,
+  //     students_id: 2,
+  //   }),
 
-    success: function (response) {
-      console.log("Tweet inserted successfully!");
-      console.log(response);
+  //   success: function (response) {
+  //     console.log("Tweet inserted successfully!");
+  //     console.log(response);
 
-      const data = new FormData(event.target);
-      const tweetText1 = data.get("tweet-text");
-      const selectedOption = selectElement.options[selectElement.selectedIndex];
-      const selectedStudent = selectedOption ? selectedOption.text : "";
-      window.visitor = selectedStudent;
+  const data = new FormData(event.target);
+  const tweetText1 = data.get("tweet-text");
+  const selectedOption = selectElement.options[selectElement.selectedIndex];
+  const selectedStudent = selectedOption ? selectedOption.text : "";
+  window.visitor = selectedStudent;
 
-      writeTweet(tweetText1);
-      // $('input[name="tweet-text"]').val(""); // Clear the input field
-      getNewTweets(); // Function to fetch new tweets
-    },
-    error: function (error) {
-      console.error("Error inserting tweet:", error);
-    },
-  });
+  writeTweet(tweetText1);
+  $('input[name="tweet-text"]').val(""); // Clear the input field
+  // getNewTweets(); // Function to fetch new tweets
+  // },
+  //   error: function (error) {
+  //     console.error("Error inserting tweet:", error);
+  //   },
+  // });
 });
 
 const selectElement = document.getElementById("student-select");
@@ -258,90 +256,3 @@ function getStudentDataFromDatabase(id) {
     });
   });
 }
-
-// $(".tweet-form").on("submit", function (event) {
-//   event.preventDefault();
-//   const data = new FormData(event.target);
-//   const tweetText = data.get("tweet-text");
-//   window.visitor = "danny";
-//   writeTweet(tweetText);
-//   getNewTweets();
-//   console.log("where is danny");
-//   $('input[name="tweet-text"]').val("");
-// });
-
-// Assuming you have an array of student objects with their data
-// Get the required elements
-// Get the required elements
-// Get the required elements
-// Get the required elements
-
-function fetchNewTweets() {
-  // Perform an AJAX request to fetch the last 10 tweets from the server
-  $.ajax({
-    url: "/post",
-    method: "GET",
-    data: { limit: 10 }, // Specify the limit parameter to retrieve the last 10 posts
-    success: function (newTweets) {
-      if (newTweets.length > 0) {
-        $tweets.html("");
-
-        for (let i = 0; i < newTweets.length; i++) {
-          const tweet = newTweets[i];
-          const $tweet = $("<div></div>").addClass("tweet");
-          storeFile();
-
-          const $username = $("<a></a>")
-            .attr("href", `#${tweet.user}`)
-            .text(`@${tweet.user}`);
-          $username.on("click", function () {
-            let $test = $("<div></div>");
-            $test.append(`<h2>@${tweet.user}'s tweets:</h2>`);
-            const tweets = u1[tweet.user];
-
-            for (let j = 0; j < tweets.length; j++) {
-              const subTweet = tweets[j];
-              const subMessage = subTweet.post_content;
-              const subTimestamp = formatTimestamp(subTweet.post_time);
-              const $subTweet = $("<div></div>").addClass("tweet");
-              const $subContent = $("<div></div>").addClass("tweet-content");
-              const $subMessage = $("<span></span>")
-                .addClass("tweet-message")
-                .text(subMessage);
-              const $subTimestamp = $("<span></span>")
-                .addClass("tweet-timestamp")
-                .text(`(${subTimestamp})`);
-              $subContent.append($subMessage);
-              $subTweet.append($subContent, $subTimestamp);
-              $test.append($subTweet);
-            }
-
-            $p.prepend($test);
-          });
-
-          const timestamp = tweet.post_time || Date.now();
-          const $content = $("<div></div>").addClass("tweet-content");
-          const $message = $("<span></span>")
-            .addClass("tweet-message")
-            .text(tweet.post_content);
-          const $timestamp = $("<span></span>")
-            .addClass("tweet-timestamp")
-            .text(`(${formatTimestamp(timestamp)})`);
-
-          $tweet.append($username);
-          $content.append($message, $timestamp);
-          $tweet.append($content);
-          $tweets.prepend($tweet);
-        }
-
-        lastIndex = streams.home.length - 1;
-      }
-    },
-    error: function (error) {
-      console.error("Error fetching new tweets:", error);
-    },
-  });
-}
-
-// Refresh the tweets every 2 seconds
-// setInterval(fetchNewTweets, 2000);

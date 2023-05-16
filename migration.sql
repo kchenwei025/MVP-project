@@ -19,7 +19,7 @@ Create table students (
 
 Create table post (
     id serial,
-    post_time TIME,
+    post_time time,
     post_content TEXT,
     students_id INTEGER
 );
@@ -491,6 +491,99 @@ INSERT INTO students (
   'I have a 7 month old daughter; I have driven across the country multiple times and of those times, once being in a 26 foot moving truck; After completing college, I have been a Police Officer and Coast Guardsman for 8 years. I am switching to a new career field in Software Engineering and excited for the change.'
 );
 
+INSERT INTO students (
+  name,
+  introduction,
+  whereFrom,
+  whySoftwareEngineering,
+  techInterest,
+  Hobbies,
+  favoriteMovies,
+  favoriteBook,
+  favoriteQuote,
+  InterestingFacts
+) VALUES (
+  'Simi Aromolaran',
+  'I am originally from Nigeria, West Africa and my native dialect is "Yoruba" language. I spent the first 28 years of my life in Nigeria before relocating to the United States.',
+  'Nigeria, West Africa',
+  'I am a non-technical staff member--and have a very limited tech vocabulary! I have prior work experience as a college counselor as well as a Guidance counselor working with transitioning service members and their families. My most recent role was working with high school students getting a head start on college through the early college program. My family members are very techy, so I had been looking for an opportunity to break into the tech world when I found out about Operation level up which is geared specifically towards transitioning military members. After several years of passionately working with military families, I had no doubt that I got "two for one" in my new role. Not only am I getting the opportunity to explore the tech world and become more tech savvy, I am also privileged to continue to work with our nation''s greatest heroes. I look forward to helping and supporting each of these soldiers to transition to a new career path!',
+  'Artificial Intelligence, Internet of Things (IOT)',
+  'Cooking, singing, going to movies, cleaning my house',
+  'Akila and the Bees, Training Day, Just Mercy, Dead Poets Society, The Passion of the Christ, Coming to America (Part 1), The Great Debaters, Wakanda, action movies',
+  'Who Moved My Cheese, Rich Dad, Poor Dad, SOAR, An Everyone Culture, MAGIC, The Seven Habits of Highly Effective People, Romeo and Juliet, Things Fall Apart, As You Like It, The Tempest, How Successful People Think by John Maxwell (currently reading)',
+  'Carpe Diem ("Seize the day")',
+  'I am an early riser regardless of what time I go to bed. I am engrossed with cleanliness. I am terrified by heights.'
+);
+
+INSERT INTO students (
+  name
+
+) VALUES (
+  'Brooklyn'
+
+);
+
+
+INSERT INTO students (
+  name
+
+) VALUES (
+  'Samson'
+
+);
+
+INSERT INTO students (
+  name
+
+) VALUES (
+  'Triston'
+
+);
+
+
+INSERT INTO students (
+  name
+
+) VALUES (
+  'Sebastian'
+
+);
+
+INSERT INTO students (
+  name
+
+) VALUES (
+  'Jesse '
+
+);
+
+
+
+INSERT INTO students (
+  name
+
+) VALUES (
+  'Jadyn'
+
+);
+
+
+
+INSERT INTO students (
+  name
+
+) VALUES (
+  'Danny '
+
+);
+
+INSERT INTO students (
+  name
+
+) VALUES (
+  'Christian Kittsteiner'
+
+);
 
 
 

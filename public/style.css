@@ -11,13 +11,16 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   display: flex;
-
   align-items: center;
   justify-content: center;
   height: 100vh;
   margin: 0;
   padding: 0;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
+
 
 .tweets div {
   background-color: #f8f8f8;
@@ -43,12 +46,7 @@ body {
   color: #333;
 }
 
-body {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  height: 100vh;
-}
+
 
 @keyframes gradient {
   0% {
@@ -71,10 +69,65 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 100vh;
+  height: 98vh;
+
+
+}
+.tweet-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-/* body {
+.tweet-input {
+  display: flex;
+  align-items: center;
+}
+
+.tweet-input label {
+  margin-right: 10px;
+}
+
+
+#student-data {
+  /* CSS styles for the student-data button */
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#student-data-container {
+  /* CSS styles for the student-data button */
+
+
+  margin-top: 20px;
+
+  bottom: 0;
+
+}
+
+#student-data-container {
+  margin-top: 20px;
+  bottom: 0;
+  max-width: 300px;
+}
+
+element.style {
+  display: flex;
+}
+
+
+#student-select,
+.tweet-form,
+#student-data {
+  /* CSS styles for the select, tweet-form, and student-data button */
+  margin-top: 20px;
+}
+
+/* /* body {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,4 +211,4 @@ body {
 
 .p {
   margin-top: 20px;
-} */
+} */  */
