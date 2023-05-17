@@ -167,6 +167,38 @@ app.patch("/students/:id", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+app.delete("/post/:id", (req, res) => {
+  const id = req.params.id;
+
+  db.query("DELETE FROM post WHERE id = $1 RETURNING *", [id])
+    .then((result) => {
+      if (result.rowCount === 0) {
+        res.status(404).send("post not found");
+      } else {
+        res.status(204).send();
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    });
+});
+app.delete("/post", (req, res) => {
+  db.query("DELETE FROM post")
+    .then((result) => {
+      if (result.rowCount === 0) {
+        res.status(404).send("post not found");
+      } else {
+        res.status(204).send("All post deleted");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    });
+});
+
 app.listen(PORT, () => {
   console.log(`Listing on port: ${PORT}`);
 });

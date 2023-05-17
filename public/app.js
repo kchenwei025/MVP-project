@@ -4,10 +4,8 @@ let lastIndex = -1;
 let u1 = {};
 
 function getNewTweets() {
-  // $tweets.html(" ");
-
   $.ajax({
-    url: "/post", // Replace with the actual endpoint to fetch tweet data from the database
+    url: "/post",
     method: "GET",
     success: function (tweetsResponse) {
       fetchStudentNames()
@@ -23,7 +21,9 @@ function getNewTweets() {
             const $tweet = $("<div></div>");
             storeFile();
             const tweet = tweetsResponse[i];
-            const timestamp = new Date();
+            const timestamp = tweet.post_time;
+            const tweetId = tweet.id;
+            console.log(tweet);
             const studentId = tweet.students_id;
             const content = tweet.post_content;
             const student = studentNames.find(function (s) {
@@ -33,31 +33,58 @@ function getNewTweets() {
             if (student) {
               const studentName = student.name;
               const $username = $(`<a></a>`);
-              console.log(studentName);
+              let $test = $("<div></div>");
+              let $h2 = $(`<h2>@${studentName}'s tweets:</h2>`);
+              $test.append($h2);
+
               $username.on("click", function () {
-                // let $test = $("<div></div>");
-                // $test.append(`<h2>@${studentName}'s tweets:</h2>`);
-                // console.log("what is u1:", u1);
-                // const tweets = u1[1];
-                // for (let i = 0; i < tweets.length; i++) {
-                //   const tweet = tweets[i];
-                //   const message = tweet.post_content;
-                //   const timestamp = formatTimestamp(
-                //     Date.parse(tweet.timestamp)
-                //   );
-                //   console.log(timestamp);
-                //   let $tweet = $("<div></div>"); // Create a new $tweet element for each tweet
-                //   $tweet.text(`(${timestamp}): ${message}`);
-                //   $test.append($tweet);
-                // }
-                // $p.prepend($test);
+                const tweets = u1[studentId];
+
+                for (let i = 0; i < tweets.length; i++) {
+                  const tweet = tweets[i];
+                  const message = tweet.message;
+
+                  const timestamp = formatTimestamp(tweet.timestamp);
+
+                  console.log("timestamp First time:GOOD!!", timestamp);
+                  // Create a new $tweet element for each tweet
+                  $tweet.text(`(${timestamp}): ${message}`);
+                  $test.append($tweet);
+                  let $deleteButton = $("<button></button>").text("Delete");
+                  $tweet.append($deleteButton);
+
+                  (function (tweetId) {
+                    $deleteButton.on("click", function () {
+                      // Make an AJAX request to delete the tweet
+                      console.log("The ID that was deleted:", tweetId); // Use the captured tweetId
+                      $.ajax({
+                        url: "/post/" + tweetId, // Use the captured tweetId in the URL
+                        method: "DELETE",
+                        success: function (response) {
+                          // Handle successful deletion
+                          console.log("Tweet deleted successfully!");
+                          // Remove the $tweet element from the DOM
+                          $tweet.remove();
+                          $h2.remove();
+                        },
+                        error: function (error) {
+                          // Handle error
+                          console.error("Error deleting tweet:", error);
+                        },
+                      });
+                    });
+                  })(tweetId);
+                }
+
+                $p.prepend($test);
               });
 
               $username.attr("href", `#${studentName}`);
               $username.text(`@${studentName}`);
               $tweet.append($username);
-              $tweet.append(`(${formatTimestamp(timestamp)}): ${content}`);
+              $tweet.append(`(Just now): ${content}`);
               $tweets.prepend($tweet);
+              console.log(timestamp);
             }
           }
           lastIndex = tweetsResponse.length - 1;
@@ -111,7 +138,8 @@ function storeFile() {
 
         u1[user].push({
           message: tweet.post_content,
-          timestamp: tweet.post_time || Date.now(),
+          timestamp: Date.now(),
+          id: tweet.id,
         });
       }
     },
@@ -129,10 +157,33 @@ $(".tweet-form").on("submit", function (event) {
   const selectedStudent = selectedOption ? selectedOption.text : "";
   window.visitor = selectedStudent;
   console.log(tweetText1);
+
+  if (tweetText1 === "😒") {
+    $tweets.html(" ");
+    $p.html("");
+    alert("DELETE ALL");
+    console.log("detele all!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    $.ajax({
+      url: "/post", // Use the captured tweetId in the URL
+      method: "DELETE",
+      success: function (response) {
+        // Handle successful deletion
+        console.log("Tweet deleted successfully!");
+        // Remove the $tweet element from the DOM
+      },
+      error: function (error) {
+        // Handle error
+        console.error("Error deleting tweet:", error);
+      },
+    });
+  }
   if (tweetText1 === "🐝") {
     alert("Good Job!");
+    writeTweet(tweetText1);
   }
-  writeTweet(tweetText1);
+  if (tweetText1 !== "😒") {
+    writeTweet(tweetText1);
+  }
   $('input[name="tweet-text"]').val(""); // Clear the input field
 });
 
@@ -212,7 +263,7 @@ selectElement.addEventListener("change", function () {
 function getStudentDataFromDatabase(id) {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: `/students/${id}`, // Replace with the actual endpoint to fetch student data
+      url: `/students/${id}`,
       method: "GET",
       success: function (response) {
         resolve(response);

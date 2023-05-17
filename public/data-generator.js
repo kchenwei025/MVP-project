@@ -26,7 +26,6 @@ streams.users.Dalton = [];
 streams.users.Sebastian = [];
 streams.users.Triston = [];
 streams.users.Samson = [];
-
 streams.users.Brooklyn = [];
 streams.users.Tim = [];
 streams.users.Jadyn = [];
@@ -65,7 +64,7 @@ var addTweet = function (newTweet) {
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify({
-          post_time: new Date().toLocaleTimeString(),
+          post_time: new Date(),
           post_content: newTweet.message,
           students_id: userId,
         }),
@@ -220,15 +219,7 @@ var writeTweet = function (message) {
 
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
-var writeTweet = function (message) {
-  if (!visitor) {
-    throw new Error("set the global visitor property!");
-  }
-  var tweet = {};
-  tweet.user = visitor;
-  tweet.message = message;
-  addTweet(tweet);
-};
+
 // setInterval(generateRandomTweet, 1000);
 var isIntervalRunning = false;
 var intervalId;
@@ -287,7 +278,6 @@ function incrementEntryCount() {
       entryCount = latestId;
 
       $("#entry-count").text(entryCount);
-      console.log(entryCount);
     },
     error: function (error) {
       console.error(error);

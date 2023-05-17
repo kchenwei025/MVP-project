@@ -2,11 +2,7 @@ h2 {
   border: 1px solid black;
   padding: 10px;
 }
-.p {
-  border: 1px solid black;
-  padding: 10px;
-  padding: 1em;
-}
+
 body {
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -24,11 +20,10 @@ body {
 .tweets {
   /* Add some padding for spacing */
   font-family: "Arial", sans-serif; /* Change the font family to your preferred font */
-  overflow:visible; /* Add overflow property to enable scrolling if content exceeds the container */
-  box-sizing: border-box; 
+  overflow: visible; /* Add overflow property to enable scrolling if content exceeds the container */
+  box-sizing: border-box;
 }
 .tweets div {
-
   background-color: #f8f8f8;
   border-radius: 5px;
   padding: 10px;
@@ -48,14 +43,11 @@ body {
   text-decoration: none;
   transition: color 0.2s ease;
   word-wrap: break-word;
-
 }
 
 .tweets a:hover {
   color: #ed0c0c;
 }
-
-
 
 @keyframes gradient {
   0% {
@@ -79,8 +71,6 @@ body {
   justify-content: center;
   align-items: flex-start;
   height: 98vh;
-
-
 }
 .tweet-form {
   position: relative;
@@ -98,10 +88,9 @@ body {
   margin-right: 10px;
 }
 
-
 #student-data {
   /* CSS styles for the student-data button */
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px;
   border: none;
@@ -112,16 +101,13 @@ body {
   /* CSS styles for the student-data button */
   /* Add a border with 1px width and a color of your choice */
   padding: 10px; /* Add some padding for spacing */
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   max-width: 300px;
 }
-
-
 
 element.style {
   display: flex;
 }
-
 
 #student-select,
 .tweet-form,
@@ -130,88 +116,10 @@ element.style {
   margin-top: 25px;
 }
 
-/* /* body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 400px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.tweet-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.tweet-form label {
-  margin-bottom: 10px;
-}
-
-.tweet-form input {
-  padding: 5px;
-  width: 100%;
-}
-
-.tweet-form button {
-  padding: 10px;
-  width: 100px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.tweet-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tweets {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-#student-select {
-  margin-bottom: 10px;
-}
-
-#student-data {
-  padding: 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-#student-data-container {
-  margin-top: 20px;
-}
-
 .p {
-  margin-top: 20px;
-} */  */
+  margin-top: 25px;
+}
+
+.p:not(:empty) {
+  border: 1px solid black;
+}

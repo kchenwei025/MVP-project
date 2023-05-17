@@ -19,7 +19,7 @@ Create table students (
 
 Create table post (
     id serial,
-    post_time time,
+    post_time TIMESTAMP,
     post_content TEXT,
     students_id INTEGER
 );
