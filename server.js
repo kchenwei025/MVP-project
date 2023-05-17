@@ -74,30 +74,30 @@ app.post("/students", (req, res) => {
   const {
     name,
     introduction,
-    whereFrom,
-    whySoftwareEngineering,
-    techInterest,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
     Hobbies,
-    favoriteMovies,
-    favoriteQuote,
-    InterestingFacts,
+    favoritemovies,
+    favoritequote,
+    interestingfacts,
   } = req.body;
   if (!name) {
     res.status(400).send("Bad Request");
     return;
   }
   db.query(
-    "INSERT INTO students(name, introduction, whereFrom, whySoftwareEngineering, techInterest, Hobbies, favoriteMovies, favoriteQuote, InterestingFacts) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
+    "INSERT INTO students(name, introduction, wherefrom, whysoftwareengineering, techinterest, Hobbies, favoritemovies, favoritequote, interestingfacts) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
     [
       name,
       introduction,
-      whereFrom,
-      whySoftwareEngineering,
-      techInterest,
+      wherefrom,
+      whysoftwareengineering,
+      techinterest,
       Hobbies,
-      favoriteMovies,
-      favoriteQuote,
-      InterestingFacts,
+      favoritemovies,
+      favoritequote,
+      interestingfacts,
     ]
   ).then((result) => {
     console.log(result.rows);
@@ -143,22 +143,63 @@ app.get("/entries/latest", (req, res) => {
       res.status(500).send("Internal Server Error");
     });
 });
-
 app.patch("/students/:id", async (req, res) => {
-  const { name, age, kind } = req.body;
+  const {
+    name,
+    introduction,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
+    hobbies,
+    favoritemovies,
+    favoritequote,
+    favoritebook,
+    interestingfacts,
+    facebook,
+    linkedin,
+    github,
+  } = req.body;
   const { id } = req.params;
-  if (!name && !age && !kind) {
-    res.status(400).send("Bad Request");
-    return;
-  }
+
   const query = {
-    text: "UPDATE pets SET name = COALESCE($1, name), age = COALESCE($2, age), kind = COALESCE($3, kind) WHERE id = $4 RETURNING *",
-    values: [name, age, kind, id],
+    text: `UPDATE students SET
+      name = COALESCE($1, name),
+      introduction = COALESCE($2, introduction),
+      wherefrom = COALESCE($3, wherefrom),
+      whysoftwareengineering = COALESCE($4, whysoftwareengineering),
+      techinterest = COALESCE($5, techinterest),
+      hobbies = COALESCE($6, hobbies),
+      favoritemovies = COALESCE($7, favoritemovies),
+      favoritequote = COALESCE($8, favoritequote),
+      favoritebook = COALESCE($9, favoritebook),
+      interestingfacts = COALESCE($10, interestingfacts),
+      facebook = COALESCE($11, facebook),
+      linkedin = COALESCE($12, linkedin),
+      github = COALESCE($13, github)
+      WHERE id = $14
+      RETURNING *`,
+    values: [
+      name,
+      introduction,
+      wherefrom,
+      whysoftwareengineering,
+      techinterest,
+      hobbies,
+      favoritemovies,
+      favoritequote,
+      favoritebook,
+      interestingfacts,
+      facebook,
+      linkedin,
+      github,
+      id,
+    ],
   };
+
   try {
     const result = await db.query(query);
     if (result.rowCount === 0) {
-      res.status(404).send("Pet not found");
+      res.status(404).send("Student not found");
     } else {
       res.send(result.rows[0]);
     }

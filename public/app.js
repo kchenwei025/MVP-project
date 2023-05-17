@@ -8,6 +8,10 @@ function getNewTweets() {
     url: "/post",
     method: "GET",
     success: function (tweetsResponse) {
+      if (tweetsResponse.length < 1) {
+        $tweets.html("");
+      }
+
       fetchStudentNames()
         .then(function (studentsResponse) {
           const studentNames = studentsResponse.map(function (student) {
@@ -149,6 +153,23 @@ function storeFile() {
   });
 }
 
+var buttonsVisible = true;
+
+function toggleButtons() {
+  var aiButton = document.getElementById("AI-button");
+  var wowButton = document.getElementById("wow");
+
+  if (buttonsVisible) {
+    aiButton.style.visibility = "hidden";
+    wowButton.style.visibility = "hidden";
+    buttonsVisible = false;
+  } else {
+    aiButton.style.visibility = "visible";
+    wowButton.style.visibility = "visible";
+    buttonsVisible = true;
+  }
+}
+
 $(".tweet-form").on("submit", function (event) {
   event.preventDefault();
   const data = new FormData(event.target);
@@ -157,7 +178,9 @@ $(".tweet-form").on("submit", function (event) {
   const selectedStudent = selectedOption ? selectedOption.text : "";
   window.visitor = selectedStudent;
   console.log(tweetText1);
-
+  if (tweetText1 === "HH") {
+    toggleButtons();
+  }
   if (tweetText1 === "😒") {
     $tweets.html(" ");
     $p.html("");
@@ -179,10 +202,17 @@ $(".tweet-form").on("submit", function (event) {
   }
   if (tweetText1 === "🐝") {
     alert("Good Job!");
-    writeTweet(tweetText1);
   }
   if (tweetText1 !== "😒") {
     writeTweet(tweetText1);
+  }
+  if (tweetText1 === "AI") {
+    var password = prompt("Please enter the password:");
+    if (password === "MCSP21") {
+      toggleInterval();
+    } else {
+      alert("Incorrect password. Action denied.");
+    }
   }
   $('input[name="tweet-text"]').val(""); // Clear the input field
 });
@@ -224,24 +254,45 @@ fetchStudentNames()
 
 // Event listener for the button click
 buttonElement.addEventListener("click", () => {
-  // Get the selected student ID from the dropdown
   const selectedId = selectElement.value;
 
-  // Retrieve the student data from the database based on the selected ID
-  // Assuming you have a method called "getStudentDataFromDatabase" that retrieves the data from the database
   getStudentDataFromDatabase(selectedId)
     .then((studentData) => {
-      // Clear previous student data
       studentDataElement.innerHTML = "";
 
-      // Loop through the student data and create elements for each column
       for (const key in studentData) {
-        if (studentData.hasOwnProperty(key)) {
+        if (studentData.hasOwnProperty(key) && key !== "id") {
           const value = studentData[key];
+          console.log("Original Key:", key);
 
+          const container = document.createElement("div");
+
+          // Create a paragraph element to display the key and value
           const element = document.createElement("p");
           element.textContent = `${key}: ${value}`;
-          studentDataElement.appendChild(element);
+
+          // Create a button element for updating the value
+          const updateButton = document.createElement("button");
+          updateButton.textContent = "Update";
+          updateButton.addEventListener("click", () => {
+            const newValue = prompt(`Enter new ${key}:`, value);
+            if (newValue !== null) {
+              updateStudentValue(selectedId, key, newValue)
+                .then((updatedValue) => {
+                  // Update the displayed value
+                  console.log(updatedValue);
+                  element.textContent = `${key}: ${updatedValue}`;
+                  console.log(`Updated ${key} to: ${updatedValue}`);
+                })
+                .catch((error) => {
+                  console.error(`Error updating ${key}:`, error);
+                });
+            }
+          });
+
+          container.appendChild(element);
+          container.appendChild(updateButton);
+          studentDataElement.appendChild(container);
         }
       }
 
@@ -251,6 +302,33 @@ buttonElement.addEventListener("click", () => {
       console.error("Error retrieving student data:", error);
     });
 });
+
+async function updateStudentValue(selectedId, key, newValue) {
+  console.log("Update Request:", selectedId, key, newValue);
+  try {
+    const response = await fetch(`/students/${selectedId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        [key]: newValue,
+      }),
+    });
+
+    console.log("Update Response:", selectedId, key, newValue);
+
+    if (response.ok) {
+      const updatedStudent = await response.json();
+      return updatedStudent[key];
+    } else {
+      throw new Error("Failed to update student value");
+    }
+  } catch (error) {
+    throw error;
+  }
+}
+
 let selectedStudent = ""; // Variable to store the selected student name
 
 // Event listener for the select element

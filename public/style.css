@@ -113,11 +113,37 @@ element.style {
 .tweet-form,
 #student-data {
   /* CSS styles for the select, tweet-form, and student-data button */
+  margin-left: 5px;
+  margin-top: 25px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+#student-select:hover #student-data:hover {
+  /* CSS styles for the select, tweet-form, and student-data button */
+  margin-top: 25px;
+  background-color: #189cc8;
+}
+.tweet-form:hover {
+  background-color: #010709;
+}
+.p {
   margin-top: 25px;
 }
 
-.p {
-  margin-top: 25px;
+#idd {
+  border-radius: 30px;
+}
+
+.tweet-text {
+  border-radius: 30px;
+}
+
+#student-data:hover,
+#student-select:hover,
+#AI-button:hover,
+#wow:hover,
+#idd:hover {
+  background-color: #189cc8;
 }
 
 .p:not(:empty) {

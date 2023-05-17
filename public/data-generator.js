@@ -38,7 +38,6 @@ var addTweet = function (newTweet) {
   streams.users[username] ||= [];
   streams.users[username].push(newTweet);
   streams.home.push(newTweet);
-  console.log(username);
 
   $.ajax({
     url: "/students",
@@ -50,15 +49,12 @@ var addTweet = function (newTweet) {
         name: student.name,
       }));
 
-      // Find the corresponding user ID by matching the username
       var user = studentsData.find(function (student) {
         return student.name.includes(username);
       });
 
-      // Check if the user exists and retrieve the user ID
       var userId = user ? user.id : null;
 
-      // Make an AJAX request to insert the tweet into the database
       $.ajax({
         url: "/post",
         method: "POST",
@@ -83,36 +79,67 @@ var addTweet = function (newTweet) {
   });
 };
 
-// utility function
 var randomElement = function (array) {
   var randomIndex = Math.floor(Math.random() * array.length);
   return array[randomIndex];
 };
 
-// random tweet generator
 var opening = [
   "just",
-  "",
-  "",
-  "",
-  "",
-  "ask me how i",
-  "completely",
-  "nearly",
-  "productively",
-  "efficiently",
-  "last night i",
-  "the president",
-  "that wizard",
-  "a ninja",
+  "🤣🤣🤣🤣",
+  "🤣🤣🤣",
+  "🤣🤣",
+  "🤣🤣",
+  "🤣",
+  "😘",
+  "😍",
+  "🥲🥲",
+  "(●'◡'●)",
+  "🤣🤣",
+  "🤣🤣",
+  "🤣",
+  "^_^",
+  "🤔Maybe I shouldn't",
+  "🤣🤣I can not believe Samson just",
+  "🙊Will will do",
+  "John easily",
+  "Ask me how i",
+  "Completely",
+  "Nearly",
+  "How hard is it to",
+  "Productively",
+  "Efficiently",
+  "Last night i",
+  "The president",
+  "That wizard",
+  "🐝🐝 Couple bees just",
+  "Danny",
+  "Ronnie",
+  "Evil Phil",
+  "Will",
+  "🤣😃😃",
+  "A ninja",
   "Yoda",
+  "I think it is pretty easy to",
+  "It Would Behoove You to",
+  "❤️",
+  "💀💀💀",
+  "🐝🐝🐝",
+  "🤘🤘🤘",
+  "💀💀💀",
+  "😨😨😨",
+  "😒😒",
+  "❤️",
+  "❤️",
 ];
 var verbs = [
+  "solved",
   "downloaded",
   "interfaced",
   "deployed",
   "developed",
   "built",
+  "dream",
   "invented",
   "experienced",
   "navigated",
@@ -127,8 +154,14 @@ var verbs = [
   "systematized",
   "overhauled",
   "computed",
+  "rendered",
+  "fly over",
+  "crushed",
+  "launched over",
 ];
 var objects = [
+  "their",
+  "aliens",
   "my",
   "your",
   "the",
@@ -138,11 +171,15 @@ var objects = [
   "this",
   "that",
   "the",
+  "one gigantic",
   "the big",
   "a new form of",
 ];
 var nouns = [
+  "Elon Musk",
+  "bee",
   "cat",
+  "way to Mars",
   "koolaid",
   "system",
   "city",
@@ -150,14 +187,18 @@ var nouns = [
   "cloud",
   "potato",
   "money",
+  "apple",
   "way of life",
   "belief system",
   "security system",
   "bad decision",
   "future",
+  "snake",
   "life",
   "pony",
   "mind",
+  "MVP project",
+  "Amazon",
 ];
 var tags = [
   "#techlife",
@@ -165,15 +206,21 @@ var tags = [
   "#sf",
   "but only i know how",
   "for real",
+  "#What a day",
   "#sxsw",
   "#ballin",
   "#omg",
   "#yolo",
   "#magic",
-  "",
-  "",
-  "",
-  "",
+  "#DOM sucks",
+  "#CluelessSoftwareEngineer",
+  "#wooah",
+  "#Jquery",
+  "#What just happened",
+  "#IsThisRealLife",
+  "#WhatIsBlueOcean?",
+  "#WhereIsWill??",
+  "#HalfRightFace",
 ];
 
 var randomMessage = function () {
@@ -192,6 +239,7 @@ var generateRandomTweet = function () {
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
   tweet.createdAt = new Date();
+  console.log(tweet);
   addTweet(tweet);
 };
 
@@ -205,11 +253,12 @@ var writeTweet = function (message) {
   addTweet(tweet);
 };
 
-// for (var i = 0; i < 1; i++) {
-//   generateRandomTweet();
-//   alert("Someone Enter the website");
-// }
-
+function get5() {
+  for (var i = 0; i < 5; i++) {
+    generateRandomTweet();
+  }
+}
+get5();
 // setInterval(generateRandomTweet, 5000);
 // var scheduleNextTweet = function () {
 //   generateRandomTweet();
@@ -221,20 +270,6 @@ var writeTweet = function (message) {
 // (note: not used by the rest of this file.)
 
 // setInterval(generateRandomTweet, 1000);
-var isIntervalRunning = false;
-var intervalId;
-
-function toggleInterval() {
-  if (isIntervalRunning) {
-    // Stop the interval
-    clearInterval(intervalId);
-    isIntervalRunning = false;
-  } else {
-    // Start the interval
-    intervalId = setInterval(generateRandomTweet, 1000);
-    isIntervalRunning = true;
-  }
-}
 
 // Add click event listener to the button
 var entryCount = 0;
@@ -248,7 +283,7 @@ function toggleInterval() {
     isIntervalRunning = false;
   } else {
     // Start the interval
-    intervalId = setInterval(generateRandomTweet, 1000);
+    intervalId = setInterval(get5, 5000);
     isIntervalRunning = true;
   }
 }

@@ -4,17 +4,20 @@ Create table students (
     id serial,
     name text,
     introduction text,
-    whereFrom text,
-    whySoftwareEngineering text,
-    techInterest text,
+    wherefrom text,
+    whysoftwareengineering text,
+    techinterest text,
     hobbies text,
-    favoriteMovies text,
-    favoriteQuote text,
-    favoriteBook text,
-    InterestingFacts text
+    favoritemovies text,
+    favoritequote text,
+    favoritebook text,
+    interestingfacts text,
+    facebook text,
+    linkedin text,
+    github text
 );
 
---  name,introduction,whereFrom,whySoftwareEngineering,techInterest,Hobbies,favoriteMovies,favoriteQuote,InterestingFacts
+
 
 
 Create table post (
@@ -28,20 +31,18 @@ Create table entries (
     id serial,
     num INTEGER
 );
-
-
-
+    
 INSERT INTO students (
     name ,
     introduction ,
-    whereFrom ,
-    whySoftwareEngineering ,
-    techInterest ,
+    wherefrom ,
+    whysoftwareengineering ,
+    techinterest ,
     Hobbies ,
-    favoriteMovies ,
-    favoriteBook,
-    favoriteQuote ,
-    InterestingFacts ) VALUES 
+    favoritemovies ,
+    favoritebook,
+    favoritequote ,
+    interestingfacts ) VALUES 
     ('Tayla Enns' , 
     'Hey everyone! Excited to be here and learn/grow with all of you! I was born and raised in Central California. Although, since joining the Navy, I''ve lived in many states and countries. I currently reside on the east coast in VA. ' ,
     'Central California', 
@@ -56,14 +57,14 @@ INSERT INTO students (
 INSERT INTO students (
     name ,
     introduction ,
-    whereFrom ,
-    whySoftwareEngineering ,
-    techInterest ,
+    wherefrom ,
+    whysoftwareengineering ,
+    techinterest ,
     Hobbies ,
-    favoriteMovies ,
-    favoriteBook,
-    favoriteQuote ,
-    InterestingFacts ) VALUES 
+    favoritemovies ,
+    favoritebook,
+    favoritequote ,
+    interestingfacts ) VALUES 
     ('Tim Galloway' , 
     'Good morning/afternoon,I am Tim Galloway and I am excited to be going on this coding adventure with everyone. I am originally from Belvidere, Illinois. Since joining the Air Force in 2003, I have called many place home. I''m not back in Illinois on Scott Air Force Base as I await my final retirement date of 1 September.  
  ',
@@ -80,14 +81,14 @@ INSERT INTO students (
 INSERT INTO students (
     name,
     introduction,
-    whereFrom,
-    whySoftwareEngineering,
-    techInterest,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
     Hobbies,
-    favoriteMovies,
-    favoriteBook,
-    favoriteQuote,
-    InterestingFacts
+    favoritemovies,
+    favoritebook,
+    favoritequote,
+    interestingfacts
 ) VALUES (
     'Ronald Miller',
     'I am from a very small town in northern Idaho. I joined the Air Force in 2014 and spent my first 5 years stationed in Nebraska, followed by 2 ½ years stationed in the United Kingdom.',
@@ -103,14 +104,14 @@ INSERT INTO students (
 INSERT INTO students (
     name,
     introduction,
-    whereFrom,
-    whySoftwareEngineering,
-    techInterest,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
     Hobbies,
-    favoriteMovies,
-    favoriteBook,
-    favoriteQuote,
-    InterestingFacts
+    favoritemovies,
+    favoritebook,
+    favoritequote,
+    interestingfacts
 ) VALUES (
     'Shu Luo',
     'I am originally from China. I am currently stationed at Fort Wainwright, AK, and plan to move to Atlanta, GA.',
@@ -126,14 +127,14 @@ INSERT INTO students (
 INSERT INTO students (
     name,
     introduction,
-    whereFrom,
-    whySoftwareEngineering,
-    techInterest,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
     Hobbies,
-    favoriteMovies,
-    favoriteBook,
-    favoriteQuote,
-    InterestingFacts
+    favoritemovies,
+    favoritebook,
+    favoritequote,
+    interestingfacts
 )
 VALUES (
     'Joseph Carmeli',
@@ -151,14 +152,14 @@ VALUES (
 INSERT INTO students (
     name,
     introduction,
-    whereFrom,
-    whySoftwareEngineering,
-    techInterest,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
     Hobbies,
-    favoriteMovies,
-    favoriteBook,
-    favoriteQuote,
-    InterestingFacts
+    favoritemovies,
+    favoritebook,
+    favoritequote,
+    interestingfacts
 )
 VALUES (
     'Darrin Mosher',
@@ -175,14 +176,14 @@ VALUES (
 INSERT INTO students (
     name,
     introduction,
-    whereFrom,
-    whySoftwareEngineering,
-    techInterest,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
     Hobbies,
-    favoriteMovies,
-    favoriteBook,
-    favoriteQuote,
-    InterestingFacts
+    favoritemovies,
+    favoritebook,
+    favoritequote,
+    interestingfacts
 ) VALUES (
     'Phillip Sussman',
     'I currently live in Tucson, AZ with my Wife & Son, but was born in Brazil. Grew up in SoCal as well.',
@@ -198,14 +199,14 @@ INSERT INTO students (
 INSERT INTO students (
     name,
     introduction,
-    whereFrom,
-    whySoftwareEngineering,
-    techInterest,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
     Hobbies,
-    favoriteMovies,
-    favoriteBook,
-    favoriteQuote,
-    InterestingFacts
+    favoritemovies,
+    favoritebook,
+    favoritequote,
+    interestingfacts
 ) VALUES (
     'Phillip Mejia',
     'Pleasure to meet everyone! Looking forward to learning and working with all of you. I''m from Savannah, GA',
@@ -221,14 +222,14 @@ INSERT INTO students (
 INSERT INTO students (
     name,
     introduction,
-    whereFrom,
-    whySoftwareEngineering,
-    techInterest,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
     Hobbies,
-    favoriteMovies,
-    favoriteBook,
-    favoriteQuote,
-    InterestingFacts
+    favoritemovies,
+    favoritebook,
+    favoritequote,
+    interestingfacts
 ) VALUES (
     'Simi Aromolaran',
     'I am originally from Nigeria, West Africa and my native dialect is "Yoruba" language. I spent the first 28 years of my life in Nigeria before relocating to the United States.',
@@ -244,14 +245,14 @@ INSERT INTO students (
 INSERT INTO students (
     name,
     introduction,
-    whereFrom,
-    whySoftwareEngineering,
-    techInterest,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
     Hobbies,
-    favoriteMovies,
-    favoriteBook,
-    favoriteQuote,
-    InterestingFacts
+    favoritemovies,
+    favoritebook,
+    favoritequote,
+    interestingfacts
 ) VALUES (
     'David Garcia',
     'Hi all! I''m David Garcia and I''ll be your Transition and Career Services Manager for this cohort! I''m an Air Force brat so we travelled a lot as a kid, but I call Mt. Laurel, New Jersey, USA my hometown.',
@@ -267,14 +268,14 @@ INSERT INTO students (
 INSERT INTO students (
     name,
     introduction,
-    whereFrom,
-    whySoftwareEngineering,
-    techInterest,
+    wherefrom,
+    whysoftwareengineering,
+    techinterest,
     Hobbies,
-    favoriteMovies,
-    favoriteBook,
-    favoriteQuote,
-    InterestingFacts
+    favoritemovies,
+    favoritebook,
+    favoritequote,
+    interestingfacts
 ) VALUES (
     'John Kluse',
     'Hey everybody!!!! I''m stoked to be part of this group and to be on this journey together.Salt Lake City, Utah, but I''ve lived in Hawaii for a couple of years and also in the Philippines.',
@@ -290,14 +291,14 @@ INSERT INTO students (
 INSERT INTO students (
 name,
 introduction,
-whereFrom,
-whySoftwareEngineering,
-techInterest,
+wherefrom,
+whysoftwareengineering,
+techinterest,
 Hobbies,
-favoriteMovies,
-favoriteBook,
-favoriteQuote,
-InterestingFacts
+favoritemovies,
+favoritebook,
+favoritequote,
+interestingfacts
 ) VALUES (
 'Will Swinson',
 'Hope everyone is well! Here is some information about me if you''d like to know more please just email me here!I am from North Carolina. Currently stationed at FT HOOD, Texas',
@@ -313,14 +314,14 @@ InterestingFacts
 INSERT INTO students (
 name,
 introduction,
-whereFrom,
-whySoftwareEngineering,
-techInterest,
+wherefrom,
+whysoftwareengineering,
+techinterest,
 Hobbies,
-favoriteMovies,
-favoriteBook,
-favoriteQuote,
-InterestingFacts
+favoritemovies,
+favoritebook,
+favoritequote,
+interestingfacts
 ) VALUES (
 'Fitz Gerald S Sicat',
 'Hello everyone! Originally from the Philippines, moved to Guam, joined the Navy from California and got stationed in Virginia.',
@@ -336,14 +337,14 @@ InterestingFacts
 INSERT INTO students (
 name,
 introduction,
-whereFrom,
-whySoftwareEngineering,
-techInterest,
+wherefrom,
+whysoftwareengineering,
+techinterest,
 Hobbies,
-favoriteMovies,
-favoriteBook,
-favoriteQuote,
-InterestingFacts
+favoritemovies,
+favoritebook,
+favoritequote,
+interestingfacts
 ) VALUES (
 'David Christobal',
 'Good afternoon everyone! I am from El Paso, TX. Joined the Air Force in 2019 but have always been set on only doing 4 years. I was stationed in England for 2 years and finishing my contract in Florida.',
@@ -359,14 +360,14 @@ InterestingFacts
 INSERT INTO students (
 name,
 introduction,
-whereFrom,
-whySoftwareEngineering,
-techInterest,
+wherefrom,
+whysoftwareengineering,
+techinterest,
 Hobbies,
-favoriteMovies,
-favoriteBook,
-favoriteQuote,
-InterestingFacts
+favoritemovies,
+favoritebook,
+favoritequote,
+interestingfacts
 ) VALUES (
 'Adrian Pacheco',
 'Hello all. My name is Adrian Pacheco and I am excited to go on this journey with all of you.I am from Desert Hot Springs, California, and grew up there my whole life before I joined the Army.',
@@ -382,14 +383,14 @@ InterestingFacts
 INSERT INTO students (
 name,
 introduction,
-whereFrom,
-whySoftwareEngineering,
-techInterest,
+wherefrom,
+whysoftwareengineering,
+techinterest,
 Hobbies,
-favoriteMovies,
-favoriteBook,
-favoriteQuote,
-InterestingFacts
+favoritemovies,
+favoritebook,
+favoritequote,
+interestingfacts
 ) VALUES (
 'Wei Chen',
 'Hi! Everybody! I am originally from China, I moved to the United States 10 years ago.',
@@ -405,14 +406,14 @@ InterestingFacts
 INSERT INTO students (
 name,
 introduction,
-whereFrom,
-whySoftwareEngineering,
-techInterest,
+wherefrom,
+whysoftwareengineering,
+techinterest,
 Hobbies,
-favoriteMovies,
-favoriteBook,
-favoriteQuote,
-InterestingFacts
+favoritemovies,
+favoritebook,
+favoritequote,
+interestingfacts
 ) VALUES (
 'Jersen Reyes',
 'Good afternoon everyone! I''ll be joining the cohort to help guide you all through any questions you may have!',
@@ -429,14 +430,14 @@ InterestingFacts
 INSERT INTO students (
 name,
 introduction,
-whereFrom,
-whySoftwareEngineering,
-techInterest,
+wherefrom,
+whysoftwareengineering,
+techinterest,
 Hobbies,
-favoriteMovies,
-favoriteBook,
-favoriteQuote,
-InterestingFacts
+favoritemovies,
+favoritebook,
+favoritequote,
+interestingfacts
 ) VALUES (
 'Jose Larrahondo',
 'I am from New Jersey',
@@ -452,14 +453,14 @@ InterestingFacts
 INSERT INTO students (
 name,
 introduction,
-whereFrom,
-whySoftwareEngineering,
-techInterest,
+wherefrom,
+whysoftwareengineering,
+techinterest,
 Hobbies,
-favoriteMovies,
-favoriteBook,
-favoriteQuote,
-InterestingFacts
+favoritemovies,
+favoritebook,
+favoritequote,
+interestingfacts
 ) VALUES (
 'Jeremy Effinger',
 'I''m originally from the Houston area in Texas, spent my entire military career over in San Diego and I''m now living in Tennessee.',
@@ -476,14 +477,14 @@ InterestingFacts
 INSERT INTO students (
   name,
   introduction,
-  whereFrom,
-  whySoftwareEngineering,
-  techInterest,
+  wherefrom,
+  whysoftwareengineering,
+  techinterest,
   Hobbies,
-  favoriteMovies,
-  favoriteBook,
-  favoriteQuote,
-  InterestingFacts
+  favoritemovies,
+  favoritebook,
+  favoritequote,
+  interestingfacts
 ) VALUES (
   'Dalton Andrews',
   'I am from a small town in Tennessee called Gleason, TN. I lived there until I joined the Coast Guard at age 23.',
@@ -500,14 +501,14 @@ INSERT INTO students (
 INSERT INTO students (
   name,
   introduction,
-  whereFrom,
-  whySoftwareEngineering,
-  techInterest,
+  wherefrom,
+  whysoftwareengineering,
+  techinterest,
   Hobbies,
-  favoriteMovies,
-  favoriteBook,
-  favoriteQuote,
-  InterestingFacts
+  favoritemovies,
+  favoritebook,
+  favoritequote,
+  interestingfacts
 ) VALUES (
   'Simi Aromolaran',
   'I am originally from Nigeria, West Africa and my native dialect is "Yoruba" language. I spent the first 28 years of my life in Nigeria before relocating to the United States.',
