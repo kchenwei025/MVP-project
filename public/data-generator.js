@@ -206,9 +206,10 @@ var writeTweet = function (message) {
   addTweet(tweet);
 };
 
-for (var i = 0; i < 1; i++) {
-  generateRandomTweet();
-}
+// for (var i = 0; i < 1; i++) {
+//   generateRandomTweet();
+//   alert("Someone Enter the website");
+// }
 
 // setInterval(generateRandomTweet, 5000);
 // var scheduleNextTweet = function () {
@@ -229,3 +230,87 @@ var writeTweet = function (message) {
   addTweet(tweet);
 };
 // setInterval(generateRandomTweet, 1000);
+var isIntervalRunning = false;
+var intervalId;
+
+function toggleInterval() {
+  if (isIntervalRunning) {
+    // Stop the interval
+    clearInterval(intervalId);
+    isIntervalRunning = false;
+  } else {
+    // Start the interval
+    intervalId = setInterval(generateRandomTweet, 1000);
+    isIntervalRunning = true;
+  }
+}
+
+// Add click event listener to the button
+var entryCount = 0;
+var isIntervalRunning = false;
+var intervalId;
+
+function toggleInterval() {
+  if (isIntervalRunning) {
+    // Stop the interval
+    clearInterval(intervalId);
+    isIntervalRunning = false;
+  } else {
+    // Start the interval
+    intervalId = setInterval(generateRandomTweet, 1000);
+    isIntervalRunning = true;
+  }
+}
+
+// Add click event listener to the button
+$("#AI-button").on("click", function () {
+  var password = prompt("Please enter the password:");
+  if (password === "MCSP21") {
+    toggleInterval();
+  } else {
+    alert("Incorrect password. Action denied.");
+  }
+});
+
+$("#wow").on("click", function () {
+  console.log("clicked");
+  alert("Mac : Ctrl + Cmd + Space || Windos: Win + ; ");
+});
+
+function incrementEntryCount() {
+  // Fetch the latest ID from the server
+  $.ajax({
+    url: "/entries/latest",
+    type: "GET",
+    success: function (response) {
+      const latestId = response.id; // Assuming the server returns the latest ID
+      entryCount = latestId;
+
+      $("#entry-count").text(entryCount);
+      console.log(entryCount);
+    },
+    error: function (error) {
+      console.error(error);
+      // Handle the error here
+    },
+  });
+}
+incrementEntryCount();
+setInterval(() => {
+  incrementEntryCount();
+}, 150);
+$.ajax({
+  url: "/entries",
+  type: "post", // Change this to "post"
+  contentType: "application/json",
+  data: JSON.stringify({}),
+  success: function (response) {
+    console.log(response);
+    console.log("works");
+    // Handle the response data here
+  },
+  error: function (error) {
+    console.error(error);
+    // Handle the error here
+  },
+});

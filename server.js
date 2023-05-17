@@ -57,6 +57,18 @@ app.get("/students/:id", (req, res) => {
       res.status(500).send("Internal Server Error");
     });
 });
+app.get("/entries", (req, res) => {
+  const {} = req.body;
+  db.query("SELECT * FROM entries")
+    .then((result) => {
+      console.log(result.rows);
+      res.status(201).send(result.rows[0]);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    });
+});
 
 app.post("/students", (req, res) => {
   const {
@@ -95,10 +107,6 @@ app.post("/students", (req, res) => {
 
 app.post("/post", (req, res) => {
   const { post_time, post_content, students_id } = req.body;
-  //   if (!post_time) {
-  //     res.status(400).send("Bad Request");
-  //     return;
-  //   }
   db.query(
     "INSERT INTO post(post_time, post_content, students_id) VALUES ($1, $2, $3) RETURNING *",
     [post_time, post_content, students_id]
@@ -106,6 +114,29 @@ app.post("/post", (req, res) => {
     .then((result) => {
       console.log(result.rows);
       res.status(201).send(result.rows[0]);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    });
+});
+app.post("/entries", (req, res) => {
+  const { num } = req.body;
+  db.query("INSERT INTO entries (num) VALUES ($1) RETURNING *", [num])
+    .then((result) => {
+      console.log(result.rows);
+      res.status(201).send(result.rows[0]);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    });
+});
+app.get("/entries/latest", (req, res) => {
+  db.query("SELECT id FROM entries ORDER BY id DESC LIMIT 1")
+    .then((result) => {
+      const latestId = result.rows[0].id;
+      res.status(200).json({ id: latestId });
     })
     .catch((error) => {
       console.error(error);

@@ -1,4 +1,4 @@
-Drop table if EXISTS students, post;
+Drop table if EXISTS students, post, entries;
 
 Create table students (
     id serial,
@@ -24,7 +24,13 @@ Create table post (
     students_id INTEGER
 );
 
-    
+Create table entries (
+    id serial,
+    num INTEGER
+);
+
+
+
 INSERT INTO students (
     name ,
     introduction ,

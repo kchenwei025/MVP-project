@@ -21,29 +21,38 @@ body {
   animation: gradient 15s ease infinite;
 }
 
-
+.tweets {
+  /* Add some padding for spacing */
+  font-family: "Arial", sans-serif; /* Change the font family to your preferred font */
+  overflow:visible; /* Add overflow property to enable scrolling if content exceeds the container */
+  box-sizing: border-box; 
+}
 .tweets div {
+
   background-color: #f8f8f8;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+
   /* transition: background-color 0.2s ease; */
 }
 
 .tweets div:hover {
-  background-color: #eaeaea;
+  background-color: #159ed4;
 }
 
 .tweets a {
   font-weight: bold;
-  color: #555;
+  color: #080606;
   text-decoration: none;
   transition: color 0.2s ease;
+  word-wrap: break-word;
+
 }
 
 .tweets a:hover {
-  color: #333;
+  color: #ed0c0c;
 }
 
 
@@ -101,19 +110,13 @@ body {
 }
 #student-data-container {
   /* CSS styles for the student-data button */
-
-
-  margin-top: 20px;
-
-  bottom: 0;
-
-}
-
-#student-data-container {
-  margin-top: 20px;
-  bottom: 0;
+  /* Add a border with 1px width and a color of your choice */
+  padding: 10px; /* Add some padding for spacing */
+  font-family:'Times New Roman', Times, serif;
   max-width: 300px;
 }
+
+
 
 element.style {
   display: flex;
@@ -124,7 +127,7 @@ element.style {
 .tweet-form,
 #student-data {
   /* CSS styles for the select, tweet-form, and student-data button */
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 /* /* body {

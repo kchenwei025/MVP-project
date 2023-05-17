@@ -21,6 +21,7 @@ function getNewTweets() {
 
           for (let i = lastIndex + 1; i < tweetsResponse.length; i++) {
             const $tweet = $("<div></div>");
+            storeFile();
             const tweet = tweetsResponse[i];
             const timestamp = new Date();
             const studentId = tweet.students_id;
@@ -32,19 +33,20 @@ function getNewTweets() {
             if (student) {
               const studentName = student.name;
               const $username = $(`<a></a>`);
-
+              console.log(studentName);
               $username.on("click", function () {
                 // let $test = $("<div></div>");
                 // $test.append(`<h2>@${studentName}'s tweets:</h2>`);
-                // const tweets = u1[studentName];
-                // console.log(timestamp);
+                // console.log("what is u1:", u1);
+                // const tweets = u1[1];
                 // for (let i = 0; i < tweets.length; i++) {
                 //   const tweet = tweets[i];
-                //   const message = tweet.message;
+                //   const message = tweet.post_content;
                 //   const timestamp = formatTimestamp(
                 //     Date.parse(tweet.timestamp)
                 //   );
                 //   console.log(timestamp);
+                //   let $tweet = $("<div></div>"); // Create a new $tweet element for each tweet
                 //   $tweet.text(`(${timestamp}): ${message}`);
                 //   $test.append($tweet);
                 // }
@@ -70,6 +72,7 @@ function getNewTweets() {
   });
 }
 
+getNewTweets();
 setInterval(() => {
   getNewTweets();
 }, 150);
@@ -100,15 +103,15 @@ function storeFile() {
     success: function (response) {
       for (let i = 0; i < response.length; i++) {
         const tweet = response[i];
-        const user = tweet.user;
+        const user = tweet.students_id;
 
         if (!u1[user]) {
           u1[user] = [];
         }
 
         u1[user].push({
-          message: tweet.message,
-          timestamp: tweet.timestamp || Date.now(),
+          message: tweet.post_content,
+          timestamp: tweet.post_time || Date.now(),
         });
       }
     },
@@ -118,55 +121,19 @@ function storeFile() {
   });
 }
 
-// function storeFile() {
-//   for (let i = 0; i < streams.home.length; i++) {
-//     const tweet = streams.home[i];
-//     const user = tweet.user;
-
-//     if (!u1[user]) {
-//       u1[user] = [];
-//     }
-
-//     u1[user].push({
-//       message: tweet.message,
-//       timestamp: tweet.timestamp || Date.now(),
-//     });
-//   }
-// }
-
 $(".tweet-form").on("submit", function (event) {
   event.preventDefault();
-  // const tweetText = $('input[name="tweet-text"]').val();
-  // const currentTime = new Date().toLocaleTimeString();
-
-  // $.ajax({
-  //   url: "/post",
-  //   method: "get",
-  //   contentType: "application/json",
-  //   data: JSON.stringify({
-  //     post_time: currentTime,
-  //     post_content: tweetText,
-  //     students_id: 2,
-  //   }),
-
-  //   success: function (response) {
-  //     console.log("Tweet inserted successfully!");
-  //     console.log(response);
-
   const data = new FormData(event.target);
   const tweetText1 = data.get("tweet-text");
   const selectedOption = selectElement.options[selectElement.selectedIndex];
   const selectedStudent = selectedOption ? selectedOption.text : "";
   window.visitor = selectedStudent;
-
+  console.log(tweetText1);
+  if (tweetText1 === "🐝") {
+    alert("Good Job!");
+  }
   writeTweet(tweetText1);
   $('input[name="tweet-text"]').val(""); // Clear the input field
-  // getNewTweets(); // Function to fetch new tweets
-  // },
-  //   error: function (error) {
-  //     console.error("Error inserting tweet:", error);
-  //   },
-  // });
 });
 
 const selectElement = document.getElementById("student-select");
