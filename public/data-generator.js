@@ -253,25 +253,6 @@ var writeTweet = function (message) {
   addTweet(tweet);
 };
 
-function get5() {
-  for (var i = 0; i < 5; i++) {
-    generateRandomTweet();
-  }
-}
-get5();
-// setInterval(generateRandomTweet, 5000);
-// var scheduleNextTweet = function () {
-//   generateRandomTweet();
-//   setTimeout(scheduleNextTweet, Math.random() * 3500);
-// };
-// scheduleNextTweet();
-
-// utility function for letting students add "write a tweet" functionality
-// (note: not used by the rest of this file.)
-
-// setInterval(generateRandomTweet, 1000);
-
-// Add click event listener to the button
 var entryCount = 0;
 var isIntervalRunning = false;
 var intervalId;
@@ -321,21 +302,27 @@ function incrementEntryCount() {
   });
 }
 incrementEntryCount();
+
 setInterval(() => {
   incrementEntryCount();
 }, 150);
+
 $.ajax({
   url: "/entries",
-  type: "post", // Change this to "post"
+  type: "post",
   contentType: "application/json",
   data: JSON.stringify({}),
   success: function (response) {
     console.log(response);
-    console.log("works");
-    // Handle the response data here
   },
   error: function (error) {
     console.error(error);
-    // Handle the error here
   },
 });
+
+// function get5() {
+//   for (var i = 0; i < 5; i++) {
+//     generateRandomTweet();
+//   }
+// }
+// get5();

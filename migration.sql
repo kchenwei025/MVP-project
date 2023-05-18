@@ -18,8 +18,6 @@ Create table students (
 );
 
 
-
-
 Create table post (
     id serial,
     post_time TIMESTAMP,

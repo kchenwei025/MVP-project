@@ -104,6 +104,7 @@ function getNewTweets() {
 }
 
 getNewTweets();
+
 setInterval(() => {
   getNewTweets();
 }, 150);
